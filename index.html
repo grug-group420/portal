@@ -26,6 +26,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#playground">Playground</a></li>
                 <li><a href="#team">Team</a></li>
+                <li><a href="#install">Install</a></li>
                 <li><a href="https://github.com/grug-group420" target="_blank" class="btn-github">GitHub</a></li>
             </ul>
             <button class="mobile-menu-btn" aria-label="Menu">☰</button>
@@ -221,6 +222,43 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Install Section -->
+        <section id="install" class="install">
+            <h2>💻 Run Locally</h2>
+            <p class="section-intro">Run grugbot420 on your machine with full CLI power</p>
+            
+            <div class="install-steps">
+                <div class="install-card">
+                    <div class="step-number">1</div>
+                    <h4>Install Bun</h4>
+                    <div class="code-block">
+                        <code>curl -fsSL https://bun.sh/install | bash</code>
+                        <button class="copy-btn" data-copy="curl -fsSL https://bun.sh/install | bash">📋</button>
+                    </div>
+                </div>
+                
+                <div class="install-card">
+                    <div class="step-number">2</div>
+                    <h4>Clone &amp; Run</h4>
+                    <div class="code-block">
+                        <code>git clone https://github.com/grug-group420/grugbot-server.git<br>cd grugbot-server<br>bun run serve</code>
+                        <button class="copy-btn" data-copy="git clone https://github.com/grug-group420/grugbot-server.git && cd grugbot-server && bun run serve">📋</button>
+                    </div>
+                </div>
+                
+                <div class="install-card">
+                    <div class="step-number">3</div>
+                    <h4>Open Browser</h4>
+                    <p class="install-url">http://localhost:3420</p>
+                    <p class="install-note">🟢 Playground connects to your local CLI!</p>
+                </div>
+            </div>
+            
+            <a href="https://github.com/grug-group420/grugbot-server" target="_blank" class="btn btn-outline">
+                <span>📖</span> Full Documentation
+            </a>
         </section>
 
         <!-- Team Section -->
