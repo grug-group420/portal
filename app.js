@@ -1,9 +1,72 @@
 /**
  * grug-group420 Portal
  * grugbot420 Playground
+ * 
+ * Supports:
+ * - Standalone mode (embedded grugbot)
+ * - Server mode (connects to local Bun server via /api/cmd)
  */
 
-// ===== grugbot420 Core =====
+// ===== Server Connection =====
+const API_BASE = window.location.origin;
+let serverMode = false;
+
+// Check if running on local server
+async function checkServer() {
+    try {
+        const res = await fetch(`${API_BASE}/api/health`, { 
+            method: 'GET',
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+            const data = await res.json();
+            if (data.status === 'ok' && data.bot === 'grugbot420') {
+                serverMode = true;
+                console.log('🔗 Connected to grugbot420 server v' + data.version);
+                updateServerStatus(true, data.version);
+                return true;
+            }
+        }
+    } catch (e) {
+        // Server not available, use embedded mode
+    }
+    serverMode = false;
+    console.log('📦 Running in standalone mode (embedded grugbot420)');
+    updateServerStatus(false);
+    return false;
+}
+
+// Update UI to show connection status
+function updateServerStatus(connected, version) {
+    const header = document.querySelector('.output-header span:last-of-type');
+    if (header && !header.classList.contains('clear-btn')) {
+        const indicator = connected ? '🟢' : '🟡';
+        const mode = connected ? `server v${version}` : 'standalone';
+        header.textContent = `grugbot420 ${mode} ${indicator}`;
+    }
+}
+
+// Send command to server
+async function serverCommand(cmd) {
+    try {
+        const res = await fetch(`${API_BASE}/api/cmd`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cmd })
+        });
+        if (res.ok) {
+            const data = await res.json();
+            return data.result;
+        }
+    } catch (e) {
+        console.error('Server error, falling back to embedded:', e);
+        serverMode = false;
+        updateServerStatus(false);
+    }
+    return null;
+}
+
+// ===== grugbot420 Embedded Core =====
 const grugbot = {
     version: '4.2.0',
     mood: 'ready to ship',
@@ -77,7 +140,7 @@ Type command and press Enter!`
                     "🧠 Grug ponder existence...\n\nConclusion: ship or no ship. Only question.",
                     "🧠 Brain hurt from complexity.\n\nMust simplify. Must ship.",
                     "🧠 Grug think:\n\nif (works) { ship(); } else { console.log('here'); }",
-                    "�� Deep thought...\n\n\"Maybe we no need microservices. Maybe monolith fine.\""
+                    "🧠 Deep thought...\n\n\"Maybe we no need microservices. Maybe monolith fine.\""
                 ];
                 return t[Math.floor(Math.random() * t.length)];
             }
@@ -150,6 +213,7 @@ Advice: ${advice}`;
             run: () => `📚 grug-group420 Tech Stack:
 
 Language:     JavaScript (simple, run everywhere)
+Runtime:      Bun.js (fast, simple)
 Framework:    None (framework come, framework go)
 Database:     JSON file (fancy database later maybe)
 Bundler:      None (script tag work fine)
@@ -215,6 +279,7 @@ Keep code small too.
 A simple bot for simple developers.
 Built by grug-group420.
 
+Mode: ${serverMode ? '🟢 Server (Bun.js)' : '🟡 Standalone (embedded)'}
 Philosophy: grugbrain.dev
 Source: github.com/grug-group420/grugbot420
 License: MIT (do what want)
@@ -222,12 +287,35 @@ License: MIT (do what want)
 Features:
 • Zero dependencies
 • Works offline
+• Bun.js server optional
 • No build step
 • Copy paste friendly
 
 Current mood: ${grugbot.mood}
 
 🦴 Complexity is the enemy.`
+        },
+        
+        server: {
+            desc: 'Server status',
+            run: () => serverMode 
+                ? `🟢 Connected to grugbot420 server
+
+Running locally via Bun.js
+API: ${API_BASE}/api/cmd
+
+Commands execute on server and return here.
+Full CLI power in your browser!`
+                : `�� Running in standalone mode
+
+No local server detected.
+Using embedded grugbot420.
+
+To enable server mode:
+  cd grugbot420
+  bun run server/index.ts
+
+Then refresh this page.`
         },
         
         clear: {
@@ -283,7 +371,10 @@ function typeEffect() {
 }
 
 // ===== DOM Ready =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Check for server connection
+    await checkServer();
+    
     // Start typing effect
     typeEffect();
     
@@ -296,11 +387,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!input || !output) return;
     
-    function runCommand(cmd) {
+    async function runCommand(cmd) {
         const command = cmd || input.value.trim();
         if (!command) return;
         
-        const result = grugbot.process(command);
+        let result;
+        
+        // Try server first if connected
+        if (serverMode && command !== 'clear' && command !== 'server') {
+            result = await serverCommand(command);
+        }
+        
+        // Fall back to embedded
+        if (!result) {
+            result = grugbot.process(command);
+        }
         
         if (result === '__CLEAR__') {
             output.innerHTML = '<p class="welcome-msg">🤖 Output cleared.</p>';
@@ -358,6 +459,8 @@ console.log(`
 
 Type grugbot.process('help') for commands.
 Or visit the playground above!
+
+Server mode: Run 'bun run server/index.ts' in grugbot420 folder.
 
 Remember: complexity bad. simple good. ship code.
 `);
