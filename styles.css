@@ -121,3 +121,51 @@ footer{text-align:center;padding:4rem 2rem;border-top:1px solid var(--border-col
     max-width: 800px;
     margin: 0 auto;
 }
+
+/* Founder Card - Larger & More Pronounced */
+.team-card.founder {
+    padding: 2.5rem 3.5rem;
+    border: 2px solid var(--accent-green);
+    background: linear-gradient(135deg, var(--bg-card), rgba(63, 185, 80, 0.05));
+    box-shadow: 0 0 30px rgba(63, 185, 80, 0.15);
+    position: relative;
+    grid-column: 1 / -1;
+    max-width: 300px;
+    margin: 0 auto 1rem;
+}
+
+.team-card.founder::before {
+    content: '👑';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    background: var(--bg-secondary);
+    padding: 0 0.5rem;
+}
+
+.team-card.founder .team-avatar-img {
+    width: 120px;
+    height: 120px;
+    border-width: 4px;
+    box-shadow: 0 0 20px rgba(63, 185, 80, 0.3);
+}
+
+.team-card.founder h4 {
+    font-size: 1.3rem;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+}
+
+.team-card.founder p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+}
+
+.team-card.founder:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 40px rgba(63, 185, 80, 0.25);
+}
