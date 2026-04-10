@@ -464,3 +464,18 @@ Server mode: Run 'bun run server/index.ts' in grugbot420 folder.
 
 Remember: complexity bad. simple good. ship code.
 `);
+
+// Copy buttons for install section
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+        const text = btn.dataset.copy;
+        try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = '✅';
+            setTimeout(() => btn.textContent = '📋', 2000);
+        } catch (e) {
+            btn.textContent = '❌';
+            setTimeout(() => btn.textContent = '📋', 2000);
+        }
+    });
+});
