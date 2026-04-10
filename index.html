@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grug-group420 | Ship Simple Code</title>
+    <meta name="description" content="grug-group420 - A collective of developers building simple tools. Try the grugbot420 playground!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">🦴</span>
+                <span>grug-group420</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#playground">Playground</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="https://github.com/grug-group420" target="_blank" class="btn-github">GitHub</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">🦴 Open Source Collective</div>
+                <h1>grug-group<span class="highlight">420</span></h1>
+                <p class="tagline">Building <span class="typed-text"></span><span class="cursor">|</span></p>
+                <p class="subtitle">Complexity bad. Simple good. Ship code.</p>
+                <div class="hero-buttons">
+                    <a href="#playground" class="btn btn-primary">
+                        <span>🎮</span> Try grugbot420
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <span>📦</span> View Projects
+                    </a>
+                    <a href="https://github.com/grug-group420" target="_blank" class="btn btn-outline">
+                        <span>⭐</span> Star Us
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Dependencies*</span></div>
+                    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Simplicity</span></div>
+                    <div class="stat"><span class="stat-num">🚀</span><span class="stat-label">Ships/Day</span></div>
+                </div>
+                <p class="stat-note">*we try, anyway</p>
+            </div>
+            <div class="hero-visual">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">grug@group420 ~</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line"><span class="prompt">$</span> <span class="cmd">node grugbot420.js</span></div>
+                        <div class="terminal-line output">🤖 grugbot420 v4.2.0 initialized</div>
+                        <div class="terminal-line output">📦 Dependencies: 0</div>
+                        <div class="terminal-line output">🧠 Complexity: LOW</div>
+                        <div class="terminal-line output">✅ Ready to ship!</div>
+                        <div class="terminal-line"><span class="prompt">$</span> <span class="cursor-blink">_</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="about" class="philosophy">
+            <h2>🧠 The Grug Way</h2>
+            <p class="section-intro">We follow the sacred teachings of <a href="https://grugbrain.dev" target="_blank">The Grug Brained Developer</a></p>
+            
+            <div class="philosophy-grid">
+                <div class="philosophy-card do">
+                    <h3>✅ Grug Do</h3>
+                    <ul>
+                        <li>Write simple code</li>
+                        <li>Ship early and often</li>
+                        <li>Delete unnecessary code</li>
+                        <li>Use boring technology</li>
+                        <li>console.log for debugging</li>
+                        <li>Read error messages</li>
+                    </ul>
+                </div>
+                <div class="philosophy-card dont">
+                    <h3>❌ Grug No Do</h3>
+                    <ul>
+                        <li>Over-engineer solutions</li>
+                        <li>Add "just in case" features</li>
+                        <li>Create deep abstractions</li>
+                        <li>Chase new frameworks</li>
+                        <li>Premature optimization</li>
+                        <li>Clever one-liners</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <blockquote class="grug-quote">
+                "Complexity very very bad. Say again: complexity very bad. Want to say again but then paragraph too long and complex."
+                <cite>— The Grug Brained Developer</cite>
+            </blockquote>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2>📦 Our Projects</h2>
+            <p class="section-intro">Simple tools built the grug way</p>
+            
+            <div class="project-grid">
+                <article class="project-card featured">
+                    <div class="project-badge">⭐ Featured</div>
+                    <div class="project-icon">🤖</div>
+                    <h3>grugbot420</h3>
+                    <p>A simple bot that embodies grug philosophy. No bloat, no complexity, just works.</p>
+                    <div class="project-meta">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Bot</span>
+                        <span class="tag">Zero Deps</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/grug-group420/grugbot420" target="_blank" class="btn btn-sm">View Code</a>
+                        <a href="#playground" class="btn btn-sm btn-primary">Try Demo</a>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-icon">⌨️</div>
+                    <h3>grug-cli</h3>
+                    <p>Command line tools the grug way. Simple commands, no magic.</p>
+                    <div class="project-meta">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">CLI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/grug-group420/grug-cli" target="_blank" class="btn btn-sm">View Code</a>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-icon">🚫</div>
+                    <h3>no-complexity</h3>
+                    <p>ESLint rules that prevent over-engineering. Keep code simple.</p>
+                    <div class="project-meta">
+                        <span class="tag">ESLint</span>
+                        <span class="tag">Linter</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/grug-group420/no-complexity" target="_blank" class="btn btn-sm">View Code</a>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-icon">��</div>
+                    <h3>grug-templates</h3>
+                    <p>Starter templates with minimal setup. No config hell.</p>
+                    <div class="project-meta">
+                        <span class="tag">Templates</span>
+                        <span class="tag">Starter</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/grug-group420/grug-templates" target="_blank" class="btn btn-sm">View Code</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Playground Section -->
+        <section id="playground" class="playground">
+            <h2>🎮 grugbot420 Playground</h2>
+            <p class="section-intro">Try grugbot420 right here. No install. No signup. Just type.</p>
+            
+            <div class="playground-container">
+                <div class="playground-sidebar">
+                    <h4>Quick Commands</h4>
+                    <div class="quick-commands">
+                        <button class="quick-cmd" data-cmd="help">help</button>
+                        <button class="quick-cmd" data-cmd="wisdom">wisdom</button>
+                        <button class="quick-cmd" data-cmd="ship">ship</button>
+                        <button class="quick-cmd" data-cmd="think">think</button>
+                        <button class="quick-cmd" data-cmd="debug">debug</button>
+                        <button class="quick-cmd" data-cmd="joke">joke</button>
+                        <button class="quick-cmd" data-cmd="complexity">complexity</button>
+                        <button class="quick-cmd" data-cmd="coffee">coffee</button>
+                    </div>
+                </div>
+                
+                <div class="playground-main">
+                    <div class="playground-output">
+                        <div class="output-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span>grugbot420 v4.2.0</span>
+                            <button id="clear-btn" class="clear-btn">Clear</button>
+                        </div>
+                        <div id="output" class="output-content">
+                            <p class="welcome-msg">🤖 grugbot420 ready.</p>
+                            <p class="welcome-msg dim">Type a command or click one on the left.</p>
+                            <p class="welcome-msg dim">Try: help, wisdom, ship, joke</p>
+                        </div>
+                    </div>
+                    
+                    <div class="playground-input">
+                        <span class="input-prompt">grug@bot420 $</span>
+                        <input type="text" id="user-input" placeholder="type command..." autocomplete="off" autofocus>
+                        <button id="run-btn" class="btn btn-primary">Run</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="team">
+            <h2>🦴 The Tribe</h2>
+            <p class="section-intro">Developers united by simplicity</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👤</div>
+                    <h4>marshalldavidson61</h4>
+                    <p>Founder</p>
+                    <a href="https://github.com/marshalldavidson61" target="_blank">GitHub →</a>
+                </div>
+                <div class="team-card join">
+                    <div class="team-avatar">➕</div>
+                    <h4>Join Us</h4>
+                    <p>Contribute to any project</p>
+                    <a href="https://github.com/grug-group420" target="_blank">Get Started →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <h2>Ready to Ship Simple?</h2>
+            <p>Join the grug-group420 tribe. Contribute to our projects or start using our tools.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/grug-group420" target="_blank" class="btn btn-primary btn-lg">
+                    <span>🦴</span> Join the Tribe
+                </a>
+                <a href="https://discord.gg/grug-group420" target="_blank" class="btn btn-secondary btn-lg">
+                    <span>💬</span> Discord
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">🦴</span>
+                <span>grug-group420</span>
+            </div>
+            <p>Open source. Simple code. Ship fast.</p>
+            <div class="footer-links">
+                <a href="https://github.com/grug-group420" target="_blank">GitHub</a>
+                <a href="https://twitter.com/gruggroup420" target="_blank">Twitter</a>
+                <a href="https://grugbrain.dev" target="_blank">Philosophy</a>
+            </div>
+            <p class="footer-quote">"Complexity is the enemy of execution."</p>
+            <p class="copyright">© 2026 grug-group420 | MIT License</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
