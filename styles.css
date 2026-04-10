@@ -103,3 +103,21 @@ footer{text-align:center;padding:4rem 2rem;border-top:1px solid var(--border-col
     color: var(--text-dim);
     margin: 0;
 }
+
+/* Team Avatar Images */
+.team-avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
